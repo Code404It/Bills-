@@ -1,0 +1,14 @@
+<h1><%= @bill.company_name %></h1><br />
+
+<p>
+  <strong>Total</strong> <%= @bill.total %><br />
+  <strong>Paid</strong> <%= @bill.paid %><br />
+</p>
+
+<%= link_to 'Back', :back %><br />
+
+<%= link_to 'Edit', edit_user_bill_bill_path(@bill) %><br />
+
+<li>
+ <%= button_to("Delete Bill", @bill, method: :delete, data:{confirm: "Are you sure?"}) %>
+</li>

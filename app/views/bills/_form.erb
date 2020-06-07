@@ -1,0 +1,23 @@
+<% if @bill.errors.any? %>
+    <h4 class="error"><%= @bill.errors.full_messages.to_sentence %></h4>
+<% end %>
+
+<%= form_with model: @bill, local: true do |f| %>
+    <%= f.label :company_name %> <br />
+    <%= f.text_field :company_name, class: @bill.errors.any? ? "error-field" : nil %> <br /> 
+
+    <%= f.label :total %> <br />
+    <%= f.text_field :total %> <br />
+
+
+    <%= f.label :paid %> <br />
+    <%= f.check_box :paid %>  <br />
+    <%= f.fields_for :user_bills do |ub| %> <br />
+        <%= ub.hidden_field :user_id, value: current_user.id %> 
+        <%= ub.label :due_date %> <br />
+        <%= ub.text_field :due_date %> <br />
+    <% end %>
+
+
+<%= f.submit %>
+<% end %>

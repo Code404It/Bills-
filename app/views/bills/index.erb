@@ -1,0 +1,15 @@
+<% if @bills.blank? %>
+   <p>Congrats, You Have ZERO Bills! Treat Yo'self!</p>
+<% else %>
+   <p>These are the reasons you should skip the drive-thru...</P>
+
+<ul id = "bills">
+  <% @bills.each do |t| %>
+ <li><%= link_to t.company_name, {action => 'show', :id => t.id} %></li>  
+<% end %>
+
+</ul>
+
+<% end %>
+<p><%= link_to "Add New Bill", {:action => 'new'} %></P>
+

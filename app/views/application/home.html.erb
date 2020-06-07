@@ -1,0 +1,12 @@
+<h1>Let's Pay Some Bills!</h1>
+
+<% if current_user %>
+    <% if @unpaid.any? %>
+        <ul>
+            <% @unpaid.each do |u| %>
+                <li><%= link_to u.company_name, bill_path(u) %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <%= link_to "Create Bill", new_bill_path %>
+<% end %>
