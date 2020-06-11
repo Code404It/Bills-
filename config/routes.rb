@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :bills
 
   resources :user_bills do
-    resources :bills, only: [:new, :edit]
+    resources :bills, only: [:index, :new, :edit]
   end
  
   root to: "application#home"

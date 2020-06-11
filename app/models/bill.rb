@@ -5,5 +5,5 @@ class Bill < ActiveRecord::Base
     accepts_nested_attributes_for :user_bills, allow_destroy: true
    
 
-    scope :unpaid, -> { where(paid: true) }
+    scope :unpaid, -> { where(paid: false) }
 end
